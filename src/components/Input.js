@@ -1,4 +1,4 @@
-
+import { textMatchAll, normalizeRegExp } from "../helpers"
 
 function Text ({ text, setText }) {
 
@@ -14,18 +14,4 @@ function Text ({ text, setText }) {
   )
 }
 
-function RegExpress ({ regexp, setRegexp }) {
-
-  function handleChange (evt) {
-    setRegexp(evt.target.value)
-  }
-
-  return (
-    <div className="regexp-component">
-      <label className="label">Regular Expression</label>
-      <input placeholder={ regexp } className='input' onChange={ handleChange }></input>
-    </div>
-  )
-}
-
-export { Text, RegExpress }
+export { Text }

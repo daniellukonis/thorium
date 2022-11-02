@@ -1,26 +1,35 @@
 
-function RawResult ({ rawResult, setRawResult }) {
+import { textMatchAll } from "../helpers"
 
-  const H = `className='highlighted'`
+
+function RegExpress ({ regexp }) {
+
+  return (
+    <div className="regexp-component">
+      <label className="label">Regular Expression</label>
+      <input placeholder={ regexp } className='input' disabled></input>
+    </div>
+  )
+}
+
+function RawResult ({ text, regexp }) {
 
   return (
     <div className="regexp-component">
       <label className="label">Raw Result</label>
-      <textarea className='input' rows='5' placeholder={rawResult} disabled></textarea>
+      <textarea className='input' rows='5' placeholder={ textMatchAll(text, regexp).map(e => e[0]).join() } disabled></textarea>
     </div>
   )
 }
 
-function VisualResult ({ visualResult, setVisualResult }) {
-
-  const H = `className='highlighted'`
+function VisualResult ({ text, regexp }) {
 
   return (
     <div className="regexp-component">
       <label className="label">Visual Result</label>
-      <textarea className='input' rows='5' placeholder={visualResult} disabled></textarea>
+      <textarea className='input' rows='5' placeholder={ text } disabled></textarea>
     </div>
   )
 }
 
-export { RawResult, VisualResult }
+export { RawResult, VisualResult, RegExpress }

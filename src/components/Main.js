@@ -1,30 +1,17 @@
-import { useEffect, useState} from 'react'
+import { useState } from 'react'
 import { Text, RegExpress, RawResult, VisualResult, ExpressionGenerator } from './index'
 
 function Main () {
 
-  function textMatchAll (text, regexp) {
-    return [...text.matchAll(new RegExp(regexp, 'g'))]
-  }
-
 // constants
   const TEXT_PLACEHOLDER = 'What do you call a couple of chimpanzees sharing an Amazon account? PRIME-mates'
-  const REGEXP_PLACEHOLDER = /a/
-  const RAWRESULT_PLACEHOLDER = 'a'
-  const VISUALRESULT_PLACEHOLDER = 'a'
+  const REGEXP_PLACEHOLDER = new RegExp('a')
 
 // set state
   const [text, setText] = useState(TEXT_PLACEHOLDER)
   const [regexp, setRegexp] = useState(REGEXP_PLACEHOLDER)
-  const [rawResult, setRawResult] = useState(RAWRESULT_PLACEHOLDER)
-  const [visualResult, setVisualResult] = useState(VISUALRESULT_PLACEHOLDER)
 
 // use effect hook
-  useEffect(() => {
-    const a = new RegExp(regexp)
-    const b = textMatchAll(text, a)
-    console.log(regexp, b)
-  })
 
 // render
   return (
@@ -39,15 +26,15 @@ function Main () {
       </div>
 
       <div>
-        <RegExpress regexp={ regexp } setRegexp={ setRegexp }/>
+        <RegExpress regexp={ regexp } />
       </div>
 
       <div>
-        <RawResult rawResult={ rawResult } setRawResult={ setRawResult } />
+        <RawResult text={ text } regexp={ regexp }/>
       </div>
 
       <div>
-        <VisualResult visualResult={ visualResult } setVisualResult={ setVisualResult } />
+        <VisualResult text={ text } regexp={ regexp }/>
       </div>
 
     </div>
