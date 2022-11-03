@@ -9,7 +9,7 @@ function Includes ({ setRegexp }) {
   return (
     <div className="generator-component">
       <label>Includes: </label>
-      <input placeholder="a" onChange={ handleChange }></input>
+      <input onChange={ handleChange }></input>
     </div>
   )
 }

@@ -22,22 +22,33 @@ function RawResult ({ text, regexp }) {
 }
 
 function VisualResult ({ text, regexp }) {
+  const targets = []
+  const splits = [...text]
 
-  const spreadText = [...text]
   const matched = textMatchAll(text, regexp)
+  // console.log(matched)
+
   matched.forEach(e => {
     for(let i = e.index; i < e.index + e[0].length; i++){
-      spreadText[i] = <span key={e.index} className="aqua-hightlight">{spreadText[i]}</span>
+      targets.push(i)
     }
   })
-  // spreadText = <p>{spreadText}</p>
 
-  // console.log(text)
+  // console.log(matched, targets.includes(37))
 
   return (
     <div className="regexp-component">
       <label className="label">Visual Result</label>
-      {/* <p>{spreadText}</p> */}
+      <p>
+        {splits.map((e, i) => {
+          if(targets.includes(i)) {
+            return <span key={i} className="aqua-hightlight">{e}</span>
+          } else {
+            return <span key={i}>{e}</span>
+          }
+
+        })}
+      </p>
     </div>
   )
 }
