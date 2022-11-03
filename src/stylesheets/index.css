@@ -64,7 +64,8 @@ button {
 
 input {
   color: aqua;
-  background-color: #282c34;
+  background-color: #334;
+
   width: 25%;
 }
 
@@ -75,7 +76,11 @@ input {
   border: 1px solid black;
   padding: 0.25rem;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
-  /* border: 1px solid blue; */
+}
+
+.result {
+  min-height: 6rem;
+  padding: 0.25rem;
 }
 
 textarea {
@@ -94,5 +99,4 @@ textarea {
 .label {
   width: 30%;
   font-size: calc(3vmin);
-  /* border: 1px solid red; */
 }

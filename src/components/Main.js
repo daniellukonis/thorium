@@ -1,17 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Text, RegExpress, RawResult, VisualResult, ExpressionGenerator } from './index'
 
 function Main () {
 
 // constants
   const TEXT_PLACEHOLDER = 'What do you call a couple of chimpanzees sharing an Amazon account? PRIME-mates'
-  const REGEXP_PLACEHOLDER = new RegExp('a')
+  const REGEXP_PLACEHOLDER = new RegExp('a', 'g')
 
 // set state
   const [text, setText] = useState(TEXT_PLACEHOLDER)
   const [regexp, setRegexp] = useState(REGEXP_PLACEHOLDER)
 
 // use effect hook
+// useEffect(() => {console.log(regexp)})
 
 // render
   return (

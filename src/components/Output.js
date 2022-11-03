@@ -6,7 +6,7 @@ function RegExpress ({ regexp }) {
   return (
     <div className="regexp-component">
       <label className="label">Regular Expression</label>
-      <input placeholder={ new RegExp(regexp) + 'g' } className='input' disabled></input>
+      <input className='input' disabled value={regexp}></input>
     </div>
   )
 }
@@ -26,7 +26,6 @@ function VisualResult ({ text, regexp }) {
   const splits = [...text]
 
   const matched = textMatchAll(text, regexp)
-  // console.log(matched)
 
   matched.forEach(e => {
     for(let i = e.index; i < e.index + e[0].length; i++){
@@ -34,12 +33,10 @@ function VisualResult ({ text, regexp }) {
     }
   })
 
-  // console.log(matched, targets.includes(37))
-
   return (
     <div className="regexp-component">
       <label className="label">Visual Result</label>
-      <p>
+      <p className="input result">
         {splits.map((e, i) => {
           if(targets.includes(i)) {
             return <span key={i} className="aqua-hightlight">{e}</span>

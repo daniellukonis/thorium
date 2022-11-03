@@ -1,9 +1,10 @@
-
+import { useState } from 'react'
+import { escapeRegExp } from '../helpers'
 
 function Includes ({ setRegexp }) {
 
   function handleChange (evt) {
-    setRegexp(evt.target.value)
+    setRegexp(new RegExp(escapeRegExp(evt.target.value), 'g') || null)
   }
 
   return (
@@ -14,13 +15,32 @@ function Includes ({ setRegexp }) {
   )
 }
 
-function Between () {
+function Between ({ setRegexp }) {
+
+  const FROM_VALUE = null;
+  const TO_VALUE = null;
+
+  const [fromValue, setFromValue] = useState(FROM_VALUE)
+  const [toValue, setToValue] = useState(TO_VALUE)
+
+  function handleFromChange (evt) {
+    setFromValue(evt.target.value)
+    setRegexp(`[${evt.target.value || null}-${toValue}]`)
+  }
+
+
+  function handleToChange (evt) {
+    setToValue(evt.target.value)
+    setRegexp(`[${fromValue}-${evt.target.value || null}]`)
+  }
+
+
   return (
     <div className="generator-component">
       <label>Between: </label>
-      <input></input>
+      <input onChange={handleFromChange} maxLength='1'></input>
       <span><p>AND</p></span>
-      <input></input>
+      <input onChange={handleToChange} maxLength='1'></input>
     </div>
   )
 }
@@ -32,7 +52,7 @@ function ExpressionGenerator ({ setRegexp }) {
       <label className="label">ExpressionGenerator</label>
       <div className="input">
         < Includes setRegexp = { setRegexp } />
-        {/* < Between /> */}
+        < Between setRegexp = { setRegexp } />
       </div>
 
     </div>
