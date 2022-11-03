@@ -1,11 +1,15 @@
 
 
-function Includes () {
+function Includes ({ setRegexp }) {
+
+  function handleChange (evt) {
+    setRegexp(evt.target.value)
+  }
+
   return (
     <div className="generator-component">
       <label>Includes: </label>
-      <input placeholder="a"></input>
-      <Add />
+      <input placeholder="a" onChange={ handleChange }></input>
     </div>
   )
 }
@@ -17,28 +21,18 @@ function Between () {
       <input></input>
       <span><p>AND</p></span>
       <input></input>
-      <Add />
     </div>
   )
 }
 
-function Add () {
-  return (
-    <div>
-      <button>Add</button>
-    </div>
-  )
-}
-
-
-function ExpressionGenerator () {
+function ExpressionGenerator ({ setRegexp }) {
 
   return (
     <div className="regexp-component">
       <label className="label">ExpressionGenerator</label>
       <div className="input">
-        < Includes />
-        < Between />
+        < Includes setRegexp = { setRegexp } />
+        {/* < Between /> */}
       </div>
 
     </div>
