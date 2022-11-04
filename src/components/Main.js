@@ -5,7 +5,7 @@ function Main () {
 
 // constants
   const TEXT_PLACEHOLDER = 'What do you call a couple of chimpanzees sharing an Amazon account? PRIME-mates'
-  const REGEXP_PLACEHOLDER = new RegExp('a', 'g')
+  const REGEXP_PLACEHOLDER = /a/g
 
 // set state
   const [text, setText] = useState(TEXT_PLACEHOLDER)

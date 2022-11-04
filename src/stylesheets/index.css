@@ -3,6 +3,8 @@ body {
   padding: 0;
   box-sizing: border-box;
 
+  margin: auto;
+
   background-color: #282c34;
   color: #aab;
 
@@ -47,9 +49,9 @@ button {
   align-items: center;
   justify-content: space-between;
   width: 95vw;
-  border-left:  solid black;
-  border-right:  solid black;
-  padding: 0 0.5rem;;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  padding: 0 0.5rem;
   /* border: 1px solid orange; */
 }
 
@@ -64,9 +66,20 @@ button {
 
 input {
   color: aqua;
-  background-color: #334;
+  background-color: #223;
 
   width: 25%;
+}
+
+sub {
+  font-size: 0.75rem;
+  color: #555
+}
+
+.float {
+  position: absolute;
+  right: 5%;
+  user-select: none;
 }
 
 .input {

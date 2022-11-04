@@ -25,13 +25,13 @@ function Between ({ setRegexp }) {
 
   function handleFromChange (evt) {
     setFromValue(evt.target.value)
-    setRegexp(`[${evt.target.value || null}-${toValue}]`)
+    setRegexp(`[${evt.target.value || toValue}-${toValue || evt.target.value}]`)
   }
 
 
   function handleToChange (evt) {
     setToValue(evt.target.value)
-    setRegexp(`[${fromValue}-${evt.target.value || null}]`)
+    setRegexp(`[${fromValue || evt.target.value}-${evt.target.value || fromValue}]`)
   }
 
 
