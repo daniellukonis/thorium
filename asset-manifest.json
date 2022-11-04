@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/thorium/static/css/main.d59c04b4.css",
+    "main.js": "/thorium/static/js/main.df1d53c8.js",
+    "index.html": "/thorium/index.html",
+    "main.d59c04b4.css.map": "/thorium/static/css/main.d59c04b4.css.map",
+    "main.df1d53c8.js.map": "/thorium/static/js/main.df1d53c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d59c04b4.css",
+    "static/js/main.df1d53c8.js"
+  ]
+}
